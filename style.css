@@ -1,0 +1,21 @@
+/* Card largeur max */
+#monFormulaire {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Encadré tarifs */
+#tarifs {
+  position: fixed;
+  top: 0;
+  right: 1em;
+  margin: 0;
+  background-color: cadetblue;
+  color: #fff;
+  list-style: none;
+  padding: 1em;
+  border-radius: 0 0 1em 1em;
+}
+
+/* Imprimer en paysage */
+@page { size: landscape; }

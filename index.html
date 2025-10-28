@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire de réservation</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body class="bg-light">
+    <div class="container my-5">
+      <form
+        id="monFormulaire"
+        class="card shadow-sm p-4 needs-validation"
+        novalidate
+        name="monFormulaire"
+        enctype="text/plain"
+        method="post"
+        action="mailto:monmail@monserveur.com?subject=test"
+      >
+        <h2 class="h4 mb-1">Formulaire de réservation</h2>
+        <p class="text-muted">(* = champ obligatoire)</p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="nom" class="form-label">Nom *</label>
+            <input
+              type="text"
+              id="nom"
+              name="nom"
+              class="form-control"
+              placeholder="Votre nom ici"
+              required
+            />
+            <div class="invalid-feedback">Le nom est obligatoire.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="prenom" class="form-label">Prénom *</label>
+            <input
+              type="text"
+              id="prenom"
+              name="prenom"
+              class="form-control"
+              placeholder="Votre prénom ici"
+              required
+            />
+            <div class="invalid-feedback">Le prénom est obligatoire.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="tel" class="form-label">Téléphone *</label>
+            <input
+              type="tel"
+              id="tel"
+              name="tel"
+              class="form-control"
+              placeholder="01 23 45 67 89"
+              inputmode="tel"
+              required
+            />
+            <div class="form-text">
+              Format : 0X XX XX XX XX ou +33 X XX XX XX XX
+            </div>
+            <div class="invalid-feedback">Numéro de téléphone invalide.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="mail" class="form-label">Email *</label>
+            <input
+              type="email"
+              id="mail"
+              name="mail"
+              class="form-control"
+              placeholder="xxx@yyyy.zzz"
+              required
+            />
+            <div class="invalid-feedback">Adresse e-mail invalide.</div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div id="lignes" class="vstack gap-3">
+          <div class="row g-2 align-items-end ligne" data-index="1">
+            <div class="col-md-4">
+              <label class="form-label" for="places1"
+                >Votre réservation est pour</label
+              >
+              <select id="places1" name="places1" class="form-select choix">
+                <option value="demijour">Demi-journée</option>
+                <option value="jour">Journée</option>
+                <option value="repas">Repas</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label" for="nbpl1">Qté</label>
+              <input
+                type="number"
+                min="0"
+                step="1"
+                id="nbpl1"
+                name="nbpl1"
+                class="form-control nbpl"
+                placeholder="0"
+              />
+              <div class="invalid-feedback">
+                La quantité doit être un entier ≥ 0.
+              </div>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label" for="st1">Sous-total HT</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="st1"
+                  name="st1"
+                  class="form-control bg-body-tertiary stt"
+                  readonly
+                  value="0,00"
+                />
+                <span class="input-group-text">€</span>
+              </div>
+            </div>
+          </div>
+          <div class="row g-2 align-items-end ligne" data-index="2">
+            <div class="col-md-4">
+              <label class="form-label visually-hidden" for="places2"
+                >Type</label
+              >
+              <select id="places2" name="places2" class="form-select choix">
+                <option value="demijour">Demi-journée</option>
+                <option value="jour" selected>Journée</option>
+                <option value="repas">Repas</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label visually-hidden" for="nbpl2">Qté</label>
+              <input
+                type="number"
+                min="0"
+                step="1"
+                id="nbpl2"
+                name="nbpl2"
+                class="form-control nbpl"
+                placeholder="0"
+              />
+              <div class="invalid-feedback">
+                La quantité doit être un entier ≥ 0.
+              </div>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label visually-hidden" for="st2"
+                >Sous-total HT</label
+              >
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="st2"
+                  name="st2"
+                  class="form-control bg-body-tertiary stt"
+                  readonly
+                  value="0,00"
+                />
+                <span class="input-group-text">€</span>
+              </div>
+            </div>
+          </div>
+          <div class="row g-2 align-items-end ligne" data-index="3">
+            <div class="col-md-4">
+              <label class="form-label visually-hidden" for="places3"
+                >Type</label
+              >
+              <select id="places3" name="places3" class="form-select choix">
+                <option value="demijour">Demi-journée</option>
+                <option value="jour">Journée</option>
+                <option value="repas" selected>Repas</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label visually-hidden" for="nbpl3">Qté</label>
+              <input
+                type="number"
+                min="0"
+                step="1"
+                id="nbpl3"
+                name="nbpl3"
+                class="form-control nbpl"
+                placeholder="0"
+              />
+              <div class="invalid-feedback">
+                La quantité doit être un entier ≥ 0.
+              </div>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label visually-hidden" for="st3"
+                >Sous-total HT</label
+              >
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="st3"
+                  name="st3"
+                  class="form-control bg-body-tertiary stt"
+                  readonly
+                  value="0,00"
+                />
+                <span class="input-group-text">€</span>
+              </div>
+            </div>
+          </div>
+          <div class="row g-2 align-items-end ligne" data-index="4">
+            <div class="col-md-4">
+              <label class="form-label visually-hidden" for="places4"
+                >Type</label
+              >
+              <select id="places4" name="places4" class="form-select choix">
+                <option value="demijour" selected>Demi-journée</option>
+                <option value="jour">Journée</option>
+                <option value="repas">Repas</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label visually-hidden" for="nbpl4">Qté</label>
+              <input
+                type="number"
+                min="0"
+                step="1"
+                id="nbpl4"
+                name="nbpl4"
+                class="form-control nbpl"
+                placeholder="0"
+              />
+              <div class="invalid-feedback">
+                La quantité doit être un entier ≥ 0.
+              </div>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label visually-hidden" for="st4"
+                >Sous-total HT</label
+              >
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="st4"
+                  name="st4"
+                  class="form-control bg-body-tertiary stt"
+                  readonly
+                  value="0,00"
+                />
+                <span class="input-group-text">€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <label for="st" class="form-label">Sous-total HT</label>
+            <div class="input-group">
+              <input
+                type="text"
+                id="st"
+                name="st"
+                class="form-control bg-body-tertiary"
+                readonly
+                value="0,00"
+              />
+              <span class="input-group-text">€</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="total" class="form-label">Total TTC (TVA 20%)</label>
+            <div class="input-group">
+              <input
+                type="text"
+                id="total"
+                name="total"
+                class="form-control bg-body-tertiary"
+                readonly
+                value="0,00"
+                aria-live="polite"
+              />
+              <span class="input-group-text">€</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-check my-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="cg"
+            name="cg"
+            required
+          />
+          <label class="form-check-label" id="labelcg" for="cg"
+            >J'accepte les conditions générales *</label
+          >
+          <div class="invalid-feedback d-block">
+            Vous devez accepter les CG.
+          </div>
+        </div>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <button type="button" id="verifier" class="btn btn-primary">
+            Vérifier avant envoi
+          </button>
+          <button type="button" id="imprimer" class="btn btn-outline-secondary">
+            Imprimer
+          </button>
+          <button type="reset" class="btn btn-outline-warning">
+            Réinitialiser
+          </button>
+          <button type="button" id="envoyer" class="btn btn-success">
+            Envoyer ma commande
+          </button>
+        </div>
+        <ul id="tarifs" class="mt-4 small">
+          <li>Tarif demi-journée : 8 €</li>
+          <li>Tarif journée : 15 €</li>
+          <li>Tarif repas : 7 €</li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>
