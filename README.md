@@ -1,4 +1,4 @@
-﻿# 🧮 Validation de formulaire
+# 🧮 Validation de formulaire
 
 ## 🎯 Objectifs
 - Effectuer des **vérifications** et des **calculs** dans un formulaire web.
@@ -78,3 +78,28 @@ montantTTC = montantHT * (1 + TAUX_TVA)
 totalHT = somme des montants HT
 tva = totalHT * TAUX_TVA
 totalTTC = totalHT + tva
+```
+
+---
+
+### 💡 Technologies utilisées
+- HTML5 — structure et sémantique
+- CSS3 — mise en forme responsive simple
+- JavaScript — logique de vérification et calculs dynamiques
+- GitHub Pages — hébergement statique gratuit
+
+---
+
+### 🪄 Déploiement automatique
+Le site est publié automatiquement via GitHub Actions à chaque push sur la branche main,
+grâce au workflow suivant :
+``` bash
+.github/workflows/deploy-pages.yml
+```
+
+---
+
+## 🌐 Démo en ligne
+Projet déployé automatiquement sur **GitHub Pages** :
+
+🔗 [https://olivier435.github.io/verifications-form/](https://olivier435.github.io/verifications-form/)
